@@ -1,0 +1,32 @@
+Revision history for Perl extension Net::DNS::Codes
+
+0.08  Thu Sep 25 11:13:22 PDT 2003
+	add Makefile constant MY_POD2TEXT
+
+0.07  Thu Jul 10 10:03:43 PDT 2003
+	added T_KEY resource record type
+	and document tree for RR's
+
+0.06  Tue Jun 24 19:34:26 PDT 2003
+	back ported test suite to perl 5.00503
+
+0.05  Sat Jun 21 13:49:28 PDT 2003
+	initial release
+
+	changed all DNS codes to direct constant calls
+	instead of subroutine arguments. 
+	NOT COMPATIBLE WITH PREVIOUS VERSIONS
+
+0.04  Sat Jun 21 10:26:28 PDT 2003
+	removed redundant names in
+	EXPORT_TAGS hash
+
+0.03  Tue Jun 17 14:42:24 PDT 2003
+	change 'use constant' to sub {...}
+	in most places
+
+0.02  Sat Jun 14 10:58:52 PDT 2003
+	add MBZ code to header
+
+0.01  Fri Jun 13 08:53:07 PDT 2003
+	alpha release
