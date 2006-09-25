@@ -8,7 +8,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS $AUTOLOAD);
 require Exporter;
 @ISA = qw(Exporter);
 
-$VERSION = do { my @r = (q$Revision: 0.08 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.09 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 # various EXPORT variables are declared at end of this module
 
@@ -126,6 +126,7 @@ T_A6
 T_DNAME
 T_SINK
 T_OPT
+T_TKEY
 T_TSIG
 T_IXFR
 T_AXFR
@@ -354,7 +355,7 @@ sub ClassTxt	{\%_classTxt};
 	T_SINK		=> 40,
 	T_OPT		=> 41,
 	T_DS		=> 43,
-	T_KEY		=> 249,
+	T_TKEY		=> 249,
 	T_TSIG		=> 250,
 	T_IXFR		=> 251,
 	T_AXFR		=> 252,
@@ -407,7 +408,7 @@ my %_type = (			# document in /extradocs
 	T_SINK		=> 40,	# draft-ietf-dnsind-kitchen-sink-01.txt
 	T_OPT		=> 41,	# rfc2671.txt
 	T_DS		=> 43,	# draft-ietf-dnsext-delegation-signer-15.txt
-	T_KEY		=> 249,	# rfc2930.txt
+	T_TKEY		=> 249,	# rfc2930.txt
 	T_TSIG		=> 250,	# rfc2931.txt
 	T_IXFR		=> 251,	# rfc1995.txt
 	T_AXFR		=> 252,	# rfc1886.txt
@@ -588,6 +589,7 @@ T_DNAME
 T_SINK
 T_OPT
 T_DS
+T_TKEY
 T_TSIG
 T_IXFR
 T_AXFR

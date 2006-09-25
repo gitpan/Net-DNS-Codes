@@ -5,7 +5,7 @@
 # Change 1..1 below to 1..last_test_to_print .
 # (It may become useful if the test is moved to ./t subdirectory.)
 
-BEGIN { $| = 1; print "1..105\n"; }
+BEGIN { $| = 1; print "1..107\n"; }
 END {print "not ok 1\n" unless $loaded;}
 
 use Net::DNS::Codes qw(:RRs);
@@ -51,7 +51,7 @@ foreach(sort keys %revclasses) {
   &ok;
 }
 
-## test 12-58
+## test 12-59
 my %types = (
         T_A             => 1,
         T_NS            => 2,
@@ -94,7 +94,7 @@ my %types = (
         T_DNAME         => 39, 
         T_SINK          => 40, 
         T_OPT           => 41, 
-	T_KEY		=> 249,
+	T_TKEY		=> 249,
         T_TSIG          => 250,
         T_IXFR          => 251,
         T_AXFR          => 252,
@@ -111,7 +111,7 @@ foreach(sort {
   &ok;
 }
 
-## test 59-105
+## test 60-108
 my %revtypes = reverse %types;
 
 foreach(sort keys %revtypes) {

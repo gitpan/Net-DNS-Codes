@@ -37,8 +37,8 @@ SYNOPSIS
     T_A T_NS T_MD T_MF T_CNAME T_SOA T_MB T_MG T_MR T_NULL T_WKS T_PTR
     T_HINFO T_MINFO T_MX T_TXT T_RP T_AFSDB T_X25 T_ISDN T_RT T_NSAP
     T_NSAP_PTR T_SIG T_KEY T_PX T_GPOS T_AAAA T_LOC T_NXT T_EID T_NIMLOC
-    T_SRV T_ATMA T_NAPTR T_KX T_CERT T_A6 T_DNAME T_SINK T_OPT T_TSIG T_IXFR
-    T_AXFR T_MAILB T_MAILA T_ANY
+    T_SRV T_ATMA T_NAPTR T_KX T_CERT T_A6 T_DNAME T_SINK T_OPT T_TKEY T_TSIG
+    T_IXFR T_AXFR T_MAILB T_MAILA T_ANY
 
       ------- :constants -------
       $code = (one of test below)
@@ -171,7 +171,7 @@ DESCRIPTION
                 T_SINK          => 40,
                 T_OPT           => 41,
                 T_DS            => 43,
-                T_KEY           => 249,
+                T_TKEY          => 249,
                 T_TSIG          => 250,
                 T_IXFR          => 251,
                 T_AXFR          => 252,
@@ -228,8 +228,8 @@ EXPORT_OK
     T_A T_NS T_MD T_MF T_CNAME T_SOA T_MB T_MG T_MR T_NULL T_WKS T_PTR
     T_HINFO T_MINFO T_MX T_TXT T_RP T_AFSDB T_X25 T_ISDN T_RT T_NSAP
     T_NSAP_PTR T_SIG T_KEY T_PX T_GPOS T_AAAA T_LOC T_NXT T_EID T_NIMLOC
-    T_SRV T_ATMA T_NAPTR T_KX T_CERT T_A6 T_DNAME T_SINK T_OPT T_DS T_TSIG
-    T_IXFR T_AXFR T_MAILB T_MAILA T_ANY
+    T_SRV T_ATMA T_NAPTR T_KX T_CERT T_A6 T_DNAME T_SINK T_OPT T_DS T_TKEY
+    T_TSIG T_IXFR T_AXFR T_MAILB T_MAILA T_ANY
 
       ------- for tag :constants -------
 

@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::DNS::Codes
 
+0.09  Sun Sep 24 18:17:29 PDT 2006
+	added missing T_TKEY, mistakenly put in as T_KEY
+
 0.08  Thu Sep 25 11:13:22 PDT 2003
 	add Makefile constant MY_POD2TEXT
 
