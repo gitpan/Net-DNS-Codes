@@ -26,6 +26,10 @@ SYNOPSIS
     NOERROR FORMERR SERVFAIL NXDOMAIN NOTIMP REFUSED YXDOMAIN YXRRSET
     NXRRSET NOTAUTH NOTZONE BADSIG BADKEY BADTIME
 
+      for flag manipulation
+
+    RCODE_MASK BITS_OPCODE_MASK
+
       ------- :RRs -------
 
       $textval = ClassTxt->{numeric};  
@@ -76,13 +80,17 @@ DESCRIPTION
           CD            =>      1_0000
           Rcode         =>      Rcode binary value
 
+          RCODE_MASK    =>      1111_1111_1111_0000
+
           where BitsOpcode =
 
-          BITS_QUERY        =>    0, 
-          BITS_IQUERY       =>    1000_0000_0000 # 1 << 11
-          BITS_STATUS       =>  1_0000_0000_0000 # 2 << 11
-          BITS_NS_NOTIFY_OP => 10_0000_0000_0000 # 4 << 11
-          BITS_NS_UPDATE_OP => 10_1000_0000_0000 # 5 << 11
+          BITS_QUERY        =>      0, 
+          BITS_IQUERY       =>      1000_0000_0000 # 1 << 11
+          BITS_STATUS       =>    1_0000_0000_0000 # 2 << 11
+          BITS_NS_NOTIFY_OP =>   10_0000_0000_0000 # 4 << 11
+          BITS_NS_UPDATE_OP =>   10_1000_0000_0000 # 5 << 11
+
+          BITS_OPCODE_MASK  => 1000_0111_1111_1111
 
     * $textval = RBitsTxt->{masked_bits};
         Returns the TEXT string for the bit fields above.
@@ -216,6 +224,8 @@ EXPORT_OK
 
     NOERROR FORMERR SERVFAIL NXDOMAIN NOTIMP REFUSED YXDOMAIN YXRRSET
     NXRRSET NOTAUTH NOTZONE BADSIG BADKEY BADTIME
+
+    BITS_OPCODE_MASK RCODE_MASK
 
       ------- for tag :RRs -------
 

@@ -7,7 +7,8 @@ use Config;
 WriteMakefile(
     'NAME'		=> "Net::DNS::Codes",
     'VERSION_FROM'	=> "Codes.pm", # finds $VERSION
-    'dist'		=> {COMPRESS=>'gzip', SUFFIX=>'gz'}
+    'dist'		=> {COMPRESS=>'gzip', SUFFIX=>'gz'},
+    'clean'		=> { FILES    => "*~ tmp*"}
 );
 
 sub MY::top_targets {

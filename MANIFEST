@@ -2,12 +2,14 @@ Changes
 Codes.pm
 GPL
 MANIFEST
+MANIFEST.SKIP
 README
 Makefile.PL
 t/RRs.t
 t/constants.t
 t/headerbits.t
 t/headercodes.t
+t/masks.t
 extra_docs/af-saa-0069.000.txt
 extra_docs/draft-ietf-dnsext-delegation-signer-15.txt
 extra_docs/draft-ietf-dnsind-kitchen-sink-01.txt

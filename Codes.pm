@@ -8,7 +8,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS $AUTOLOAD);
 require Exporter;
 @ISA = qw(Exporter);
 
-$VERSION = do { my @r = (q$Revision: 0.09 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.10 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 # various EXPORT variables are declared at end of this module
 
@@ -72,6 +72,11 @@ NOTZONE
 BADSIG
 BADKEY
 BADTIME
+
+  for flag manipulation
+
+RCODE_MASK
+BITS_OPCODE_MASK
 
   ------- :RRs -------
 
@@ -176,13 +181,17 @@ HEADER field.
   CD		=>	1_0000
   Rcode		=>	Rcode binary value
 
+  RCODE_MASK	=>	1111_1111_1111_0000
+
   where BitsOpcode =
 
-  BITS_QUERY	    =>    0, 
-  BITS_IQUERY	    =>    1000_0000_0000 # 1 << 11
-  BITS_STATUS	    =>  1_0000_0000_0000 # 2 << 11
-  BITS_NS_NOTIFY_OP => 10_0000_0000_0000 # 4 << 11
-  BITS_NS_UPDATE_OP => 10_1000_0000_0000 # 5 << 11
+  BITS_QUERY	    =>      0, 
+  BITS_IQUERY	    =>      1000_0000_0000 # 1 << 11
+  BITS_STATUS	    =>    1_0000_0000_0000 # 2 << 11
+  BITS_NS_NOTIFY_OP =>   10_0000_0000_0000 # 4 << 11
+  BITS_NS_UPDATE_OP =>   10_1000_0000_0000 # 5 << 11
+
+  BITS_OPCODE_MASK  => 1000_0111_1111_1111
 
 =cut
 
@@ -200,6 +209,8 @@ my %_query = (
    BITS_STATUS		=> 2 << 11,
    BITS_NS_NOTIFY_OP	=> 4 << 11,
    BITS_NS_UPDATE_OP	=> 5 << 11,
+   BITS_OPCODE_MASK	=> 0xF<<11 ^ 0xFFFF,
+   RCODE_MASK		=> 0xFFF0,
 );
 
 my %_querytxt;
@@ -534,6 +545,9 @@ NOTZONE
 BADSIG
 BADKEY
 BADTIME
+
+BITS_OPCODE_MASK
+RCODE_MASK
 
   ------- for tag :RRs -------
 
