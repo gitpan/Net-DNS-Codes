@@ -1,5 +1,32 @@
 Revision history for Perl extension Net::DNS::Codes
 
+0.11  Mon Oct  3 18:43:31 PDT 2011
+	add new codes
+	APL             42      rfc3123
+	HIP             55      rfc5205
+	IPSECKEY        45      rfc4025
+	ISDN            20      rfc1183 see section 3.3 same as TXT or HINFO
+	SPF             99      rfc4408 inherits properties of TXT
+	SSHFP           44      rfc4255
+	unknown                 rfc3597 dealing with unknown types
+	RRSIG           46      rfc4034 same format as SIG
+	NSEC            47      rfc4034 same format as NXT
+	DNSKEY          48      rfc4034 same format as KEY
+	DHCID           49      rfc4701
+	NSEC3           50      rfc5155
+	NSEC3PARAM      51      rfc5155
+	        unassigned 52 - 54
+	NINFO           56              think it is same as TXT
+	RKEY            57      RKEY-draft-00
+	TALINK          58      TALINK-draft-02 -- 2 domain names like 2 'A's
+	CDS             59      CDS-draft-02
+		unassigned 60 - 98
+	UINFO           100             reserved
+	UID             101             reserved
+	GID             102             reserved
+	UNSPEC          103             reserved
+	        unassigned 104 - 248
+
 0.10  Fri Sep 23 23:41:45 PDT 2011
 	add RCODE_MASK and BITS_OPCODE_MASK
 

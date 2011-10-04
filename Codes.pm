@@ -8,7 +8,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS $AUTOLOAD);
 require Exporter;
 @ISA = qw(Exporter);
 
-$VERSION = do { my @r = (q$Revision: 0.10 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.11 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 # various EXPORT variables are declared at end of this module
 
@@ -324,55 +324,76 @@ sub ClassTxt	{\%_classTxt};
 
   Return the TEXT string for numeric code.
 
-	T_A		=> 1,
-	T_NS		=> 2,
-	T_MD		=> 3,
-	T_MF		=> 4,
-	T_CNAME		=> 5,
-	T_SOA		=> 6,
-	T_MB		=> 7,
-	T_MG		=> 8,
-	T_MR		=> 9,
-	T_NULL		=> 10,
-	T_WKS		=> 11,
-	T_PTR		=> 12,
-	T_HINFO		=> 13,
-	T_MINFO		=> 14,
-	T_MX		=> 15,
-	T_TXT		=> 16,
-	T_RP		=> 17,
-	T_AFSDB		=> 18,
-	T_X25		=> 19,
-	T_ISDN		=> 20,
-	T_RT		=> 21,
-	T_NSAP		=> 22,
-	T_NSAP_PTR	=> 23,
-	T_SIG		=> 24,
-	T_KEY		=> 25,
-	T_PX		=> 26,
-	T_GPOS		=> 27,
-	T_AAAA		=> 28,
-	T_LOC		=> 29,
-	T_NXT		=> 30,
-	T_EID		=> 31,
-	T_NIMLOC	=> 32,
-	T_SRV		=> 33,
-	T_ATMA		=> 34,
-	T_NAPTR		=> 35,
-	T_KX		=> 36,
-	T_CERT		=> 37,
-	T_A6		=> 38,
-	T_DNAME		=> 39,
-	T_SINK		=> 40,
-	T_OPT		=> 41,
-	T_DS		=> 43,
-	T_TKEY		=> 249,
-	T_TSIG		=> 250,
-	T_IXFR		=> 251,
-	T_AXFR		=> 252,
-	T_MAILB		=> 253,
-	T_MAILA		=> 254,
-	T_ANY		=> 255,
+  T_A		=> 1,	# rfc1035.txt
+  T_NS		=> 2,	# rfc1035.txt
+  T_MD		=> 3,	# rfc1035.txt
+  T_MF		=> 4,	# rfc1035.txt
+  T_CNAME	=> 5,	# rfc1035.txt
+  T_SOA		=> 6,	# rfc1035.txt
+  T_MB		=> 7,	# rfc1035.txt
+  T_MG		=> 8,	# rfc1035.txt
+  T_MR		=> 9,	# rfc1035.txt
+  T_NULL	=> 10,	# rfc1035.txt
+  T_WKS		=> 11,	# rfc1035.txt
+  T_PTR		=> 12,	# rfc1035.txt
+  T_HINFO	=> 13,	# rfc1035.txt
+  T_MINFO	=> 14,	# rfc1035.txt
+  T_MX		=> 15,	# rfc1035.txt
+  T_TXT		=> 16,	# rfc1035.txt
+  T_RP		=> 17,	# rfc1183.txt
+  T_AFSDB	=> 18,	# rfc1183.txt
+  T_X25		=> 19,	# rfc1183.txt
+  T_ISDN	=> 20,	# rfc1183.txt
+  T_RT		=> 21,	# rfc1183.txt
+  T_NSAP	=> 22,	# rfc1706.txt
+  T_NSAP_PTR	=> 23,	# rfc1348.txt
+  T_SIG		=> 24,	# rfc2535.txt
+  T_KEY		=> 25,	# rfc2535.txt
+  T_PX		=> 26,	# rfc2163.txt
+  T_GPOS	=> 27,	# rfc1712.txt
+  T_AAAA	=> 28,	# rfc1886.txt
+  T_LOC		=> 29,	# rfc1876.txt
+  T_NXT		=> 30,	# rfc2535.txt
+  T_EID		=> 31,	# draft-ietf-nimrod-dns-02.txt
+  T_NIMLOC	=> 32,	# draft-ietf-nimrod-dns-02.txt
+  T_SRV		=> 33,	# rfc2052.txt
+  T_ATMA	=> 34,	# af-saa-0069.000.txt
+  T_NAPTR	=> 35,	# rfc2168.txt
+  T_KX		=> 36,	# rfc2230.txt
+  T_CERT	=> 37,	# rfc2538.txt
+  T_A6		=> 38,	# rfc2874.txt
+  T_DNAME	=> 39,	# rfc2672.txt
+  T_SINK	=> 40,	# draft-ietf-dnsind-kitchen-sink-01.txt
+  T_OPT		=> 41,	# rfc2671.txt
+  T_APL		=> 42,	# rfc3123.txt
+  T_DS		=> 43,	# draft-ietf-dnsext-delegation-signer-15.txt
+  T_SSHFP	=> 44,	# rfc4255.txt
+  T_IPSECKEY	=> 45,	# rfc4025.txt
+  T_RRSIG	=> 46,	# rfc4034.txt
+  T_NSEC	=> 47,	# rfc4034.txt
+  T_DNSKEY	=> 48,	# rfc4034.txt
+  T_DHCID	=> 49,	# rfc4701.txt
+  T_NSEC3	=> 50,	# rfc5155.txt
+  T_NSEC3PARAM	=> 51,	# rfc5155.txt
+	# unassigned 52 - 54
+  T_HIP		=> 55,	# rfc5205.txt
+  T_NINFO	=> 56,	# unknown
+  T_RKEY	=> 57,	# draft-reid-dnsext-rkey-00.txt
+  T_ALINK	=> 58,	# draft-ietf-dnsop-dnssec-trust-history-02.txt
+  T_CDS		=> 59,	# draft-barwood-dnsop-ds-publish-02.txt
+	# unassigned 60 - 98
+  T_UINFO	=> 100,	# reserved
+  T_UID		=> 101,	# reserved
+  T_GID		=> 102,	# reserved
+  T_UNSPEC	=> 103,	# reserved
+	# unassigned 104 - 248
+  T_TKEY	=> 249,	# rfc2930.txt
+  T_TSIG	=> 250,	# rfc2931.txt
+  T_IXFR	=> 251,	# rfc1995.txt
+  T_AXFR	=> 252,	# rfc1886.txt
+  T_MAILB	=> 253,	# rfc1886.txt
+  T_MAILA	=> 254,	# rfc1886.txt
+  T_ANY		=> 255,	# rfc1886.txt
 
 =cut
 
@@ -418,7 +439,28 @@ my %_type = (			# document in /extradocs
 	T_DNAME		=> 39,	# rfc2672.txt
 	T_SINK		=> 40,	# draft-ietf-dnsind-kitchen-sink-01.txt
 	T_OPT		=> 41,	# rfc2671.txt
+	T_APL		=> 42,	# rfc3123.txt
 	T_DS		=> 43,	# draft-ietf-dnsext-delegation-signer-15.txt
+	T_SSHFP		=> 44,	# rfc4255.txt
+	T_IPSECKEY	=> 45,	# rfc4025.txt
+	T_RRSIG		=> 46,	# rfc4034.txt
+	T_NSEC		=> 47,	# rfc4034.txt
+	T_DNSKEY	=> 48,	# rfc4034.txt
+	T_DHCID		=> 49,	# rfc4701.txt
+	T_NSEC3		=> 50,	# rfc5155.txt
+	T_NSEC3PARAM	=> 51,	# rfc5155.txt
+# unassigned 52 - 54
+	T_HIP		=> 55,	# rfc5205.txt
+	T_NINFO		=> 56,	# unknown
+	T_RKEY		=> 57,	# draft-reid-dnsext-rkey-00.txt
+	T_ALINK		=> 58,	# draft-ietf-dnsop-dnssec-trust-history-02.txt
+	T_CDS		=> 59,	# draft-barwood-dnsop-ds-publish-02.txt
+# unassigned 60 - 98
+	T_UINFO		=> 100,	# reserved
+	T_UID		=> 101,	# reserved
+	T_GID		=> 102,	# reserved
+	T_UNSPEC	=> 103,	# reserved
+# unassigned 104 - 248
 	T_TKEY		=> 249,	# rfc2930.txt
 	T_TSIG		=> 250,	# rfc2931.txt
 	T_IXFR		=> 251,	# rfc1995.txt
@@ -602,7 +644,25 @@ T_A6
 T_DNAME
 T_SINK
 T_OPT
+T_APL
 T_DS
+T_SSHFP
+T_IPSECKEY
+T_RRSIG
+T_NSEC
+T_DNSKEY
+T_DHCID
+T_NSEC3
+T_NSEC3PARAM
+T_HIP
+T_NINFO
+T_RKEY
+T_ALINK
+T_CDS
+T_UINFO
+T_UID
+T_GID
+T_UNSPEC
 T_TKEY
 T_TSIG
 T_IXFR
@@ -633,7 +693,7 @@ Michael Robinton, michael@bizsystems.com
 
 =head1 COPYRIGHT
 
-Copyright 2003, Michael Robinton & BizSystems
+Copyright 2003 - 2011, Michael Robinton & BizSystems
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or 
