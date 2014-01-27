@@ -8,7 +8,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS $AUTOLOAD);
 require Exporter;
 @ISA = qw(Exporter);
 
-$VERSION = do { my @r = (q$Revision: 0.11 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 0.12 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 # various EXPORT variables are declared at end of this module
 
@@ -390,9 +390,9 @@ sub ClassTxt	{\%_classTxt};
   T_TKEY	=> 249,	# rfc2930.txt
   T_TSIG	=> 250,	# rfc2931.txt
   T_IXFR	=> 251,	# rfc1995.txt
-  T_AXFR	=> 252,	# rfc1886.txt
-  T_MAILB	=> 253,	# rfc1886.txt
-  T_MAILA	=> 254,	# rfc1886.txt
+  T_AXFR	=> 252,	# rfc1035.txt
+  T_MAILB	=> 253,	# rfc973.txt
+  T_MAILA	=> 254,	# rfc973.txt
   T_ANY		=> 255,	# rfc1886.txt
 
 =cut
@@ -693,7 +693,7 @@ Michael Robinton, michael@bizsystems.com
 
 =head1 COPYRIGHT
 
-Copyright 2003 - 2011, Michael Robinton & BizSystems
+Copyright 2003 - 2014, Michael Robinton & BizSystems
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or 
